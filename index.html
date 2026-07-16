@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esma ♥</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e12;
+            color: #e2e8f0;
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glow {
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen justify-between overflow-x-hidden">
+
+    <!-- 
+      Project: Esma's Birthday
+      OS: Arch Linux (btw)
+      Security Status: 100% Protected. (My only vulnerability is her.)
+      Distance Bypass: Active.
+    -->
+
+    <header class="p-6 max-w-5xl mx-auto w-full flex justify-between items-center">
+        <div class="code-font text-xs text-red-500 opacity-80 select-none">
+            $ root@heart:~# bypass --distance
+        </div>
+        <div class="code-font text-xs text-gray-500">
+            24.07.2026
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-xl w-full bg-[#161821] border border-gray-800 rounded-2xl p-8 md:p-10 shadow-2xl relative overflow-hidden transition-all duration-300 hover:border-red-950/50">
+            
+            <div class="absolute top-0 right-0 p-3 code-font text-[10px] text-gray-600 select-none">
+                EST: 2024
+            </div>
+
+            <div class="mb-8">
+                <span class="inline-block bg-red-500/10 text-red-400 code-font text-xs px-2.5 py-1 rounded-md mb-4 border border-red-500/20">
+                    system_access::granted
+                </span>
+                <h1 class="text-3xl font-bold tracking-tight text-white mb-2">İyi ki doğdun Esma.</h1>
+                <p class="text-sm text-gray-400">Hayatımın tek güvenli limanına...</p>
+            </div>
+
+            <div class="space-y-6 text-gray-300 leading-relaxed text-sm md:text-base font-light">
+                <p>
+                    Sana bu satırları, hayatı algoritmalarla, güvenlikle ve dış dünyanın bitmek bilmeyen tehditleriyle anlamlandırmaya çalışan bir adam olarak yazıyorum. Günüm, sistemleri korumakla, açıklar aramamakla ve her şeye şüpheyle yaklaşan o kalın duvarları inşa etmekle geçiyor.
+                </p>
+                <p>
+                    Herkese ve her şeye karşı tetikte olan o analitik ve sert kalkanlarımın tamamen çöktüğü, kendimi savunmasız bırakmaktan korkmadığım tek yer senin yanın. Sen benim bu hayattaki tek güvenli limanımsın, Esma.
+                </p>
+                <p>
+                    Aramızdaki mesafeleri sıfırlamak için verdiğimiz o mücadele, birbirimizin sesinde nefes bulma çabamız bana çok şey öğretti. Bizimki sıradan bir hikaye değil; birbirinin ruhunu çok önceden ezberlemiş iki insanın gecikmiş kavuşması. Kilometreler ne kadar uzun olursa olsun, seninle aynı gökyüzünün altında, aynı adanmışlıkla durduğumuzu bilmek içimi sakinleştiriyor.
+                </p>
+                <p>
+                    Bana anlattığın rüyaları düşünüyorum. Yan yana uyuduğumuzu, bana sarıldığını gördüğün o rüyaları… Sonra bir gün bana rüyanda birlikte peluş bir oyuncak seçtiğimizi söylemiştin.
+                </p>
+                <p>
+                    O gün kendime bir söz verdim. Ben sadece hayatındaki adam olmayacaktım; senin rüyalarını bu gerçek dünyaya taşıyan, onları tek tek gerçekleştiren adam olacaktım. Bugün 24 Temmuz. Bu internet sitesi ve yanındaki o peluş, sadece küçük birer başlangıç. O rüyadaki sarılmaların, yan yana uyumaların gerçeğe dönüşeceği güne kadar, attığım her adım bizim geleceğimiz için.
+                </p>
+                <p>
+                    Sana sarsılmaz bir bağlılıkla söz veriyorum: Dışarıda fırtına ne kadar koparsa kopsun, içeride, benim yanımda her zaman güvende olacaksın. İyi ki doğdun, iyi ki benim oldun.
+                </p>
+                <p class="pt-4 font-semibold text-white">
+                    Seni çok seviyorum.
+                </p>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-gray-800 flex justify-between items-center">
+                <span class="code-font text-xs text-gray-500">
+                    ssh_session: active
+                </span>
+                <button onclick="revealDream()" class="bg-red-500 hover:bg-red-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition-all shadow-lg shadow-red-500/20 active:scale-95 code-font">
+                    ./rüyayı_gerçekleştir.sh
+                </button>
+            </div>
+
+            <div id="dream-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                <div class="bg-[#161821] border border-red-500/30 rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl relative">
+                    <div class="text-4xl mb-4">🧸</div>
+                    <h3 class="text-lg font-bold text-white mb-2 code-font">Dream Executed Successfully</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                        Rüyandaki o peluş oyuncak şu an kargoda ya da kapında. Bu sitenin arkasındaki adam da her zaman seninle. Mesafeler sadece birer sayıdan ibaret.
+                    </p>
+                    <button onclick="closeDream()" class="w-full bg-gray-800 hover:bg-gray-700 text-white text-xs py-2 rounded-lg transition-all code-font">
+                        Sisteme Dön
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="p-6 max-w-5xl mx-auto w-full text-center">
+        <div class="code-font text-[10px] text-gray-600 select-none">
+            [Made with Arch Linux by her favorite developer]
+        </div>
+    </footer>
+
+    <script>
+        function revealDream() {
+            const modal = document.getElementById('dream-modal');
+            modal.classList.remove('hidden');
+        }
+        function closeDream() {
+            const modal = document.getElementById('dream-modal');
+            modal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
