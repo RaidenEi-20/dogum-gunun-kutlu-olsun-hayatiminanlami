@@ -3,120 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esma ♥</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>İyi Ki Varsın Sevgilim ✨</title>
+    
+    <!-- Sosyal Medya Önizleme Kamufle Etiketleri (Sürpriz Bozulmasın) -->
+    <meta property="og:title" content="Senin İçin Küçük Bir Sürpriz... ✨">
+    <meta property="og:description" content="İyi ki doğdun sevgilim, senin için küçük bir şey hazırladım. 🌸">
+    <meta property="og:image" content="https://raidenei-20.github.io/ForEsma/resim.png">
+    <meta property="og:type" content="website">
+
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d0e12;
-            color: #e2e8f0;
+        :root {
+            --bg-dark: #0a0a0c;
+            --card-bg: #121216;
+            --accent-glow: #ff2a74;
+            --accent-soft: #ff75a0;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
         }
-        .code-font {
-            font-family: 'JetBrains Mono', monospace;
+        
+        /* Esma Yok Modunun Soluk Renkleri */
+        .esma-yok {
+            --bg-dark: #121212;
+            --card-bg: #1a1a1a;
+            --accent-glow: #555555;
+            --accent-soft: #888888;
+            --text-main: #777777;
+            --text-muted: #444444;
         }
-        .glow {
-            text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px; 
+            position: relative;
+            transition: background-color 0.5s ease;
         }
+        
+        .esma-yok-filter { filter: grayscale(1) contrast(0.9); }
+        
+        .ambient-glow { 
+            position: fixed; 
+            top: -50%; left: -50%; right: -50%; bottom: -50%; 
+            width: 200%; height: 200%; 
+            background: radial-gradient(circle, rgba(255,42,116,0.03) 0%, rgba(0,0,0,0) 70%); 
+            z-index: -1; 
+            pointer-events: none; 
+            transition: opacity 0.5s ease;
+        }
+        
+        .container { 
+            max-width: 550px; 
+            width: 100%; 
+            background: var(--card-bg); 
+            border: 1px solid rgba(255, 255, 255, 0.03); 
+            border-radius: 24px; 
+            padding: 40px 30px; 
+            text-align: center; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
+            position: relative; 
+            will-change: transform;
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        .esma-yok .container { box-shadow: none; border-color: #222; }
+        
+        /* Mod Değiştirme Butonu */
+        .mode-toggle { 
+            display: inline-flex; 
+            align-items: center; 
+            background: rgba(255, 255, 255, 0.05); 
+            padding: 8px 16px; 
+            border-radius: 30px; 
+            margin-bottom: 30px; 
+            cursor: pointer; 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            user-select: none; 
+            transition: transform 0.2s ease, background 0.3s; 
+        }
+        .mode-toggle:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.08); }
+        .toggle-text { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; }
+        
+        h1 { 
+            font-size: 2.1rem; 
+            font-weight: 800; 
+            margin-bottom: 15px; 
+            line-height: 1.4;
+            background: linear-gradient(45deg, var(--text-main), var(--accent-soft)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            transition: color 0.5s ease;
+        }
+        .esma-yok h1 { background: none; -webkit-text-fill-color: var(--text-main); }
+        
+        .subtitle { 
+            font-size: 0.95rem; 
+            color: var(--text-muted); 
+            margin-bottom: 30px; 
+            line-height: 1.6; 
+            transition: color 0.5s ease;
+        }
+
+        .counter-title { 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--accent-soft); 
+            margin-bottom: 15px; 
+            font-weight: 700; 
+            transition: color 0.5s ease;
+        }
+        
+        .counter-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; }
+        
+        .counter-box { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 15px; 
+            border-radius: 16px; 
+            min-width: 80px; 
+            transition: border-color 0.5s ease;
+        }
+        .counter-value { font-size: 1.8rem; font-weight: 700; color: var(--text-main); font-family: monospace; transition: color 0.5s ease; }
+        .counter-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; transition: color 0.5s ease; }
+        
+        .message-box { 
+            background: rgba(255, 42, 116, 0.02); 
+            border-left: 3px solid var(--accent-glow); 
+            padding: 25px; 
+            border-radius: 0 16px 16px 0; 
+            text-align: left; 
+            line-height: 1.7; 
+            font-size: 1.05rem; 
+            color: var(--text-main); 
+            transition: opacity 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+        }
+        .esma-yok .message-box { border-left-color: #444; opacity: 0.4; }
+        
+        @keyframes pulse { 
+            0% { transform: scale(1); } 
+            50% { transform: scale(1.015); } 
+            100% { transform: scale(1); } 
+        }
+        .pulse-active { animation: pulse 4s infinite ease-in-out; }
+        footer { margin-top: 30px; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; z-index: 10; }
     </style>
 </head>
-<body class="flex flex-col min-h-screen justify-between overflow-x-hidden">
-
-    <!-- 
-      Project: Esma's Birthday
-      OS: Arch Linux (btw)
-      Security Status: 100% Protected. (My only vulnerability is her.)
-      Distance Bypass: Active.
-    -->
-
-    <header class="p-6 max-w-5xl mx-auto w-full flex justify-between items-center">
-        <div class="code-font text-xs text-red-500 opacity-80 select-none">
-            $ root@heart:~# bypass --distance
+<body>
+    <div class="ambient-glow" id="ambientGlow"></div>
+    
+    <div class="container pulse-active" id="mainContainer">
+        <!-- MOD DEĞİŞTİRME BUTONU -->
+        <div class="mode-toggle" onclick="toggleMode()">
+            <span class="toggle-text" id="toggleText">Mod: Esma Var 🌸</span>
         </div>
-        <div class="code-font text-xs text-gray-500">
-            24.07.2026
+
+        <h1 id="mainTitle">İyi Ki Doğdun Sevgilim! 🌸</h1>
+        <p class="subtitle" id="mainSubtitle">Hayatıma giren en güzel hediye, dünyama neşe katan o eşsiz insana...</p>
+        
+        <div class="counter-title" id="counterTitle">Enerjinin Hayatıma Etki Süresi</div>
+        <div class="counter-container">
+            <div class="counter-box"><div class="counter-value" id="days">14</div><div class="counter-label">Gün</div></div>
+            <div class="counter-box"><div class="counter-value" id="hours">00</div><div class="counter-label">Saat</div></div>
+            <div class="counter-box"><div class="counter-value" id="minutes">00</div><div class="counter-label">Dakika</div></div>
+            <div class="counter-box"><div class="counter-value" id="seconds">00</div><div class="counter-label">Saniye</div></div>
         </div>
-    </header>
-
-    <main class="flex-grow flex items-center justify-center p-4">
-        <div class="max-w-xl w-full bg-[#161821] border border-gray-800 rounded-2xl p-8 md:p-10 shadow-2xl relative overflow-hidden transition-all duration-300 hover:border-red-950/50">
-            
-            <div class="absolute top-0 right-0 p-3 code-font text-[10px] text-gray-600 select-none">
-                EST: 2024
-            </div>
-
-            <div class="mb-8">
-                <span class="inline-block bg-red-500/10 text-red-400 code-font text-xs px-2.5 py-1 rounded-md mb-4 border border-red-500/20">
-                    system_access::granted
-                </span>
-                <h1 class="text-3xl font-bold tracking-tight text-white mb-2">İyi ki doğdun Esma.</h1>
-                <p class="text-sm text-gray-400">Hayatımın tek güvenli limanına...</p>
-            </div>
-
-            <div class="space-y-6 text-gray-300 leading-relaxed text-sm md:text-base font-light">
-                <p>
-                    Sana bu satırları, hayatı algoritmalarla, güvenlikle ve dış dünyanın bitmek bilmeyen tehditleriyle anlamlandırmaya çalışan bir adam olarak yazıyorum. Günüm, sistemleri korumakla, açıklar aramamakla ve her şeye şüpheyle yaklaşan o kalın duvarları inşa etmekle geçiyor.
-                </p>
-                <p>
-                    Herkese ve her şeye karşı tetikte olan o analitik ve sert kalkanlarımın tamamen çöktüğü, kendimi savunmasız bırakmaktan korkmadığım tek yer senin yanın. Sen benim bu hayattaki tek güvenli limanımsın, Esma.
-                </p>
-                <p>
-                    Aramızdaki mesafeleri sıfırlamak için verdiğimiz o mücadele, birbirimizin sesinde nefes bulma çabamız bana çok şey öğretti. Bizimki sıradan bir hikaye değil; birbirinin ruhunu çok önceden ezberlemiş iki insanın gecikmiş kavuşması. Kilometreler ne kadar uzun olursa olsun, seninle aynı gökyüzünün altında, aynı adanmışlıkla durduğumuzu bilmek içimi sakinleştiriyor.
-                </p>
-                <p>
-                    Bana anlattığın rüyaları düşünüyorum. Yan yana uyuduğumuzu, bana sarıldığını gördüğün o rüyaları… Sonra bir gün bana rüyanda birlikte peluş bir oyuncak seçtiğimizi söylemiştin.
-                </p>
-                <p>
-                    O gün kendime bir söz verdim. Ben sadece hayatındaki adam olmayacaktım; senin rüyalarını bu gerçek dünyaya taşıyan, onları tek tek gerçekleştiren adam olacaktım. Bugün 24 Temmuz. Bu internet sitesi ve yanındaki o peluş, sadece küçük birer başlangıç. O rüyadaki sarılmaların, yan yana uyumaların gerçeğe dönüşeceği güne kadar, attığım her adım bizim geleceğimiz için.
-                </p>
-                <p>
-                    Sana sarsılmaz bir bağlılıkla söz veriyorum: Dışarıda fırtına ne kadar koparsa kopsun, içeride, benim yanımda her zaman güvende olacaksın. İyi ki doğdun, iyi ki benim oldun.
-                </p>
-                <p class="pt-4 font-semibold text-white">
-                    Seni çok seviyorum.
-                </p>
-            </div>
-
-            <div class="mt-10 pt-6 border-t border-gray-800 flex justify-between items-center">
-                <span class="code-font text-xs text-gray-500">
-                    ssh_session: active
-                </span>
-                <button onclick="revealDream()" class="bg-red-500 hover:bg-red-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition-all shadow-lg shadow-red-500/20 active:scale-95 code-font">
-                    ./rüyayı_gerçekleştir.sh
-                </button>
-            </div>
-
-            <div id="dream-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                <div class="bg-[#161821] border border-red-500/30 rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl relative">
-                    <div class="text-4xl mb-4">🧸</div>
-                    <h3 class="text-lg font-bold text-white mb-2 code-font">Dream Executed Successfully</h3>
-                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
-                        Rüyandaki o peluş oyuncak şu an kargoda ya da kapında. Bu sitenin arkasındaki adam da her zaman seninle. Mesafeler sadece birer sayıdan ibaret.
-                    </p>
-                    <button onclick="closeDream()" class="w-full bg-gray-800 hover:bg-gray-700 text-white text-xs py-2 rounded-lg transition-all code-font">
-                        Sisteme Dön
-                    </button>
-                </div>
-            </div>
-
+        
+        <!-- Esma'ya olan doğum günü ve sevgililik mesajın -->
+        <div class="message-box" id="messageBox">
+            Esma... Artık sadece hayatımdaki o özel insan değil, aynı zamanda benim sevgilimsin. Seninle geçen her an, yukarıda durmaksızın akan o sayaçtan çok daha değerli. Çevremde olduğun, güldüğün ve hayatıma o harika sevgini kattığın her gün için teşekkür ederim. İyi ki doğdun sevgilim, iyi ki benim oldun. Birlikte kutlayacağımız nice mutlu yıllarımız olsun! 🤍 (Bu arada yukarıdaki butona basıp modu değiştirmeyi denesene...)
         </div>
-    </main>
-
-    <footer class="p-6 max-w-5xl mx-auto w-full text-center">
-        <div class="code-font text-[10px] text-gray-600 select-none">
-            [Made with Arch Linux by her favorite developer]
-        </div>
-    </footer>
+    </div>
+    
+    <footer>Coded with 🤍 for Esma</footer>
 
     <script>
-        function revealDream() {
-            const modal = document.getElementById('dream-modal');
-            modal.classList.remove('hidden');
+        let isEsmaPresent = true; 
+        let intervalId;
+        
+        // Başlangıç sayaç değerleri
+        let currentDays = 14;
+        let currentHours = Math.floor(Math.random() * 22) + 1;
+        let currentMinutes = Math.floor(Math.random() * 55) + 1;
+        let currentSeconds = Math.floor(Math.random() * 55) + 1;
+        
+        let elDays, elHours, elMinutes, elSeconds;
+
+        function updateCounter() {
+            if (!isEsmaPresent) return;
+            
+            currentSeconds++;
+            if (currentSeconds >= 60) {
+                currentSeconds = 0;
+                currentMinutes++;
+                if (currentMinutes >= 60) {
+                    currentMinutes = 0;
+                    currentHours++;
+                    if (currentHours >= 24) {
+                        currentHours = 0;
+                        currentDays++;
+                    }
+                }
+            }
+            
+            if(elDays) {
+                elDays.innerText = String(currentDays).padStart(2, '0');
+                elHours.innerText = String(currentHours).padStart(2, '0');
+                elMinutes.innerText = String(currentMinutes).padStart(2, '0');
+                elSeconds.innerText = String(currentSeconds).padStart(2, '0');
+            }
         }
-        function closeDream() {
-            const modal = document.getElementById('dream-modal');
-            modal.classList.add('hidden');
+        
+        function toggleMode() {
+            isEsmaPresent = !isEsmaPresent;
+            const body = document.body; 
+            const container = document.getElementById('mainContainer');
+            const toggleText = document.getElementById('toggleText'); 
+            const mainTitle = document.getElementById('mainTitle');
+            const mainSubtitle = document.getElementById('mainSubtitle'); 
+            const counterTitle = document.getElementById('counterTitle');
+            const messageBox = document.getElementById('messageBox');
+            const glow = document.getElementById('ambientGlow');
+
+            if (isEsmaPresent) {
+                body.classList.remove('esma-yok'); 
+                container.classList.add('pulse-active');
+                glow.style.opacity = "1";
+                toggleText.innerText = "Mod: Esma Var 🌸"; 
+                mainTitle.innerText = "İyi Ki Doğdun Sevgilim! 🌸";
+                mainSubtitle.innerText = "Hayatıma giren en güzel hediye, dünyama neşe katan o eşsiz insana...";
+                counterTitle.innerText = "Enerjinin Hayatıma Etki Süresi";
+                messageBox.innerHTML = "Esma... Artık sadece hayatımdaki o özel insan değil, aynı zamanda benim sevgilimsin. Seninle geçen her an, yukarıda durmaksızın akan o sayaçtan çok daha değerli. Çevremde olduğun, güldüğün ve hayatıma o harika sevgini kattığın her gün için teşekkür ederim. İyi ki doğdun sevgilim, iyi ki benim oldun. Birlikte kutlayacağımız nice mutlu yıllarımız olsun! 🤍";
+                
+                // Sayacı kaldığı yerden devam ettiriyoruz
+                updateCounter(); 
+                intervalId = setInterval(updateCounter, 1000);
+            } else {
+                body.classList.add('esma-yok'); 
+                container.classList.remove('pulse-active');
+                glow.style.opacity = "0";
+                toggleText.innerText = "Mod: Esma Yok 🖤"; 
+                mainTitle.innerText = "Zaman Durdu...";
+                mainSubtitle.innerText = "Ortamda sevgilimin enerjisi algılanamadı."; 
+                counterTitle.innerText = "Anlamsız geçen, donup kalan zaman";
+                messageBox.innerHTML = "Sensiz geçen bir an bile tüm anlamını yitiriyor. Renkler griye dönüyor, zaman donup kalıyor. Benim dünyamın asıl ışığı sensin sevgilim, lütfen modu tekrar açıp hayatıma geri dön... 🥀";
+                
+                // Zamanı durdurup sayaçları sıfırlıyoruz
+                clearInterval(intervalId);
+                elDays.innerText = "00"; 
+                elHours.innerText = "00";
+                elMinutes.innerText = "00"; 
+                elSeconds.innerText = "00";
+            }
         }
+        
+        window.onload = function() {
+            elDays = document.getElementById('days');
+            elHours = document.getElementById('hours');
+            elMinutes = document.getElementById('minutes');
+            elSeconds = document.getElementById('seconds');
+
+            elDays.innerText = String(currentDays).padStart(2, '0');
+            elHours.innerText = String(currentHours).padStart(2, '0');
+            elMinutes.innerText = String(currentMinutes).padStart(2, '0');
+            elSeconds.innerText = String(currentSeconds).padStart(2, '0');
+            
+            intervalId = setInterval(updateCounter, 1000);
+        };
     </script>
 </body>
 </html>
