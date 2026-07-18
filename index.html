@@ -3,480 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>İyi Ki Varsın Sevgilim ✨</title>
-    
-    <!-- Sosyal Medya Önizleme Kamufle Etiketleri -->
-    <meta property="og:title" content="Senin İçin Küçük Bir Sürpriz... ✨">
-    <meta property="og:description" content="İyi ki doğdun sevgilim, senin için küçük bir şey hazırladım. 🌸">
-    <meta property="og:image" content="https://raidenei-20.github.io/dogum-gunun-kutlu-olsun-hayatimin-anlami/resim.png">
-    <meta property="og:type" content="website">
-
+    <title>Doğum Günü Sürprizi</title>
     <style>
-        :root {
-            --bg: #050508;
-            --card-bg: rgba(18, 18, 24, 0.6);
-            --border: rgba(255, 255, 255, 0.05);
-            --accent: #ff2a74;
-            --accent-glow: rgba(255, 42, 116, 0.15);
-            --text: #f3f4f6;
-            --text-muted: #8e929e;
-            --heart-animation: beat 1.2s infinite ease-in-out;
-        }
-        
-        .esma-yok {
-            --bg: #0a0a0c;
-            --card-bg: rgba(20, 20, 22, 0.9);
-            --border: rgba(255, 255, 255, 0.02);
-            --accent: #555558;
-            --accent-glow: rgba(0, 0, 0, 0);
-            --text: #5e5e62;
-            --text-muted: #3a3a3c;
-            --heart-animation: none;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; }
-        
-        body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 20px 10px; 
-            overflow-x: hidden;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        /* Arka Plan Işıkları */
-        .ambient-glow { 
-            position: fixed; 
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%); 
-            z-index: -1; 
-            pointer-events: none; 
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.8s ease;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Navigasyon / Üst Kontrol Barı */
-        .top-bar {
-            width: 100%;
-            max-width: 900px;
+        body {
+            background: #121212;
+            background-image: radial-gradient(circle at center, #2c1a30 0%, #121212 100%);
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 15px 20px;
-            margin-bottom: 25px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            transition: all 0.6s ease;
+            overflow: hidden;
+            color: #fff;
         }
 
-        .brand { font-weight: 800; letter-spacing: -0.5px; font-size: 1.1rem; color: var(--text); }
-        
-        /* Premium iOS Switch */
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 54px;
-            height: 30px;
-        }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #2c2c2e;
-            transition: .4s;
-            border-radius: 30px;
-            border: 1px solid var(--border);
-        }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 22px; width: 22px;
-            left: 3px; bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-        }
-        input:checked + .slider { background-color: #ff2a74; }
-        input:checked + .slider:before { transform: translateX(24px); }
-
-        /* Bento Grid Yapısı */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            width: 100%;
-            max-width: 900px;
-            margin-bottom: 25px;
-        }
-
-        .bento-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 24px;
+        /* --- Ekran 1: Mektup Paneli --- */
+        .envelope-container {
+            background: #fff;
+            color: #333;
             padding: 30px;
-            backdrop-filter: blur(20px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            position: absolute;
+            z-index: 10;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+            border: 2px solid #ffb6c1;
         }
 
-        /* Bento Hücre Tanımlamaları */
-        .item-hero { grid-column: span 2; display: flex; flex-direction: column; justify-content: center; text-align: left; }
-        .item-heart { grid-column: span 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; cursor: pointer; }
-        .item-resources { grid-column: span 2; display: flex; flex-direction: column; justify-content: space-between; }
-        .item-letter { grid-column: span 1; text-align: left; display: flex; flex-direction: column; justify-content: space-between; }
-
-        /* --- SONRADAN EKLENEN GİZLİLİK VE HIZLANMA SINIFLARI --- */
-        .hide-system {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
-        }
-
-        .show-system {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .heart-fast {
-            animation: beat 0.3s infinite ease-in-out !important;
-        }
-        /* ----------------------------------------------------- */
-
-        /* Metin Tasarımları */
-        h1 { font-size: 2.2rem; font-weight: 900; line-height: 1.25; letter-spacing: -1px; margin-bottom: 12px; }
-        .badge {
-            display: inline-block;
-            background: rgba(255, 42, 116, 0.1);
-            color: var(--accent);
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
+        .envelope-container h2 {
+            color: #d81b60;
             margin-bottom: 15px;
-            width: fit-content;
-            transition: all 0.6s;
         }
-        .esma-yok .badge { background: rgba(255,255,255,0.05); }
 
-        .desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        .envelope-container p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
 
-        /* Görev Yöneticisi / Sistem Kaynakları */
-        .resources-title { 
-            font-size: 0.75rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            color: var(--accent); 
-            margin-bottom: 20px; 
-            transition: all 0.6s; 
+        .envelope-container button {
+            background: #d81b60;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 5px 15px rgba(216, 27, 96, 0.4);
         }
-        .resources-list { display: flex; flex-direction: column; gap: 15px; }
-        
-        .resource-item {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid var(--border);
-            padding: 14px 18px;
-            border-radius: 16px;
-            transition: all 0.5s ease;
+
+        .envelope-container button:hover {
+            background: #e91e63;
+            transform: scale(1.05);
         }
-        .resource-header {
+
+        /* Mektubun ekrandan ayrılma animasyon sınıfı */
+        .envelope-container.slide-out {
+            transform: translateY(-100vh) rotate(-10deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* --- Ekran 2: Ana İnteraktif Ekran --- */
+        .main-content {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 500px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+            text-align: center;
         }
-        .resource-title { color: var(--text); transition: color 0.5s; }
-        .resource-val { color: var(--accent); font-family: monospace; transition: color 0.5s; }
-        
-        .resource-bar-bg {
-            background: rgba(255, 255, 255, 0.04);
-            height: 6px;
-            border-radius: 3px;
-            overflow: hidden;
-            margin-bottom: 8px;
+
+        .main-content.show {
+            opacity: 1;
+            transform: scale(1);
         }
-        .resource-bar-fill {
-            height: 100%;
-            background: var(--accent);
-            border-radius: 3px;
+
+        /* Dinamik Mesaj Alanı */
+        .message-box {
+            font-size: 20px;
+            min-height: 80px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            color: #ffb6c1;
+        }
+
+        /* Kalp Alanı */
+        .heart-wrapper {
+            cursor: pointer;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            user-select: none;
+        }
+
+        .heart {
+            font-size: 90px;
+            color: #ff2a6d;
+            filter: drop-shadow(0 0 10px rgba(255, 42, 109, 0.6));
+            animation: beat 1.2s infinite ease-in-out;
+            transform-origin: center;
+            transition: transform 0.1s ease;
+        }
+
+        .heart-wrapper:active .heart {
+            transform: scale(0.85);
+        }
+
+        /* Tıkla Yardımcı Yazısı */
+        .click-hint {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Barların Kapsayıcısı */
+        .bars-container {
+            display: flex;
+            gap: 10px;
             width: 100%;
-            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s ease;
-        }
-        .resource-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; transition: color 0.5s; }
-
-        /* Mektup Tasarımı */
-        .letter-header { font-size: 1.2rem; font-weight: 800; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        .letter-content { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); transition: color 0.6s; }
-
-        /* Dinamik Kalp Kutusu */
-        .heart-svg {
-            width: 75px; height: 75px;
-            fill: var(--accent);
-            filter: drop-shadow(0 0 15px var(--accent));
-            animation: var(--heart-animation);
-            transition: all 0.6s ease;
+            justify-content: space-between;
         }
 
-        .status-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; color: var(--accent); transition: all 0.6s; }
+        /* Soluk Durumdaki Barlar */
+        .bar {
+            flex: 1;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.3s;
+        }
 
+        /* Barın İçindeki Doluluk Efekti */
+        .bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff758c 0%, #ff7eb3 100%);
+            box-shadow: 0 0 10px rgba(255, 126, 179, 0.8);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Kalp Atış Hızı Animasyonları */
         @keyframes beat {
-            0% { transform: scale(1); filter: drop-shadow(0 0 10px var(--accent)); }
-            25% { transform: scale(1.15); filter: drop-shadow(0 0 25px var(--accent)); }
-            40% { transform: scale(1); filter: drop-shadow(0 0 10px var(--accent)); }
-            55% { transform: scale(1.15); filter: drop-shadow(0 0 25px var(--accent)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--accent)); }
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.15); }
+            100% { transform: scale(1); }
         }
 
-        /* Mobil Uyum */
-        @media (max-width: 768px) {
-            .bento-grid { grid-template-columns: 1fr; gap: 15px; }
-            .item-hero, .item-heart, .item-resources, .item-letter { grid-column: span 1; }
-            h1 { font-size: 1.8rem; }
+        /* Konfeti Efekti (Bitiş İçin) */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff7eb3;
+            border-radius: 50%;
+            animation: fall 3s linear infinite;
+            pointer-events: none;
+            opacity: 0;
         }
 
-        footer { margin-top: 15px; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; z-index: 10; opacity: 0.6; }
+        @keyframes fall {
+            0% { transform: translateY(-5vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
     </style>
 </head>
 <body>
-    <div class="ambient-glow" id="glow"></div>
-    
-    <!-- ÜST KONTROL BARİ -->
-    <div class="top-bar">
-        <div class="brand" id="brandText">ESMA.OS v1.5 🌸</div>
-        <label class="switch">
-            <input type="checkbox" id="modeCheckbox" checked onchange="toggleMode()">
-            <span class="slider"></span>
-        </label>
+
+    <!-- Sahneler arası geçiş yapacak Mektup Paneli -->
+    <div class="envelope-container" id="envelope">
+        <h2>Sana Bir Mektup Var! ✉️</h2>
+        <p>
+            Bugün senin günün! Hayatıma kattığın tüm güzellikler için teşekkür ederim. 
+            Senin için küçük bir sürpriz hazırladım. Devam etmek ve kalbimin ritmini 
+            görmek için aşağıdaki butona tıkla.
+        </p>
+        <button onclick="openLetter()">Mektubu Aç</button>
     </div>
 
-    <!-- BENTO GRID ALANI -->
-    <div class="bento-grid" id="grid">
-        
-        <!-- Kutucuk 1: Başlık / Hero -->
-        <div class="bento-item item-hero">
-            <div class="badge" id="heroBadge">DOĞUM GÜNÜ ÖZEL</div>
-            <h1 id="heroTitle">İyi Ki Doğdun Sevgilim!</h1>
-            <p class="desc" id="heroDesc">Hayatıma girdiğin andan itibaren her günümü güzelleştiren, dünyamı rengarenk yapan en değerli varlığıma...</p>
+    <!-- Kalp ve Barların Olduğu İnteraktif Ekran -->
+    <div class="main-content" id="mainContent">
+        <!-- Değişen Mesajlar -->
+        <div class="message-box" id="messageBox">
+            İlk siteye girdiğinde yine doğum günü mesajı olucak...
         </div>
 
-        <!-- Kutucuk 2: Dinamik Kalp Nabzı -->
-        <div class="bento-item item-heart" id="heartTrigger">
-            <svg class="heart-svg" id="heartSvg" viewBox="0 0 32 29.6">
-                <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-                c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-            </svg>
-            <div class="status-text" id="statusText">Nabız: Normal 💓</div>
+        <!-- Tıklanabilir Kalp -->
+        <div class="heart-wrapper" onclick="increasePulse()">
+            <div class="heart" id="heartElement">❤️</div>
         </div>
+        <div class="click-hint">Nabzı arttırmak için kalbe tıkla</div>
 
-        <!-- Kutucuk 3: Görev Yöneticisi / Sistem Kaynakları -->
-        <div class="bento-item item-resources hide-system" id="resourcesBox">
-            <div class="resources-title" id="resourcesTitle">Kişisel Sistem Kaynakları</div>
-            <div class="resources-list">
-                
-                <!-- Metrik 1: Hayattan Aldığım Zevk -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <span class="resource-title" id="t1">Hayattan Aldığım Zevk</span>
-                        <span class="resource-val" id="v1">%100</span>
-                    </div>
-                    <div class="resource-bar-bg">
-                        <div class="resource-bar-fill" id="b1" style="width: 100%;"></div>
-                    </div>
-                    <div class="resource-desc" id="d1">Her anı seninle doya doya yaşamanın, varlığının verdiği o benzersiz huzurun göstergesi.</div>
-                </div>
-
-                <!-- Metrik 2: Yaşama Sevinci -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <span class="resource-title" id="t2">Yaşama Sevinci</span>
-                        <span class="resource-val" id="v2">Sonsuz ✨</span>
-                    </div>
-                    <div class="resource-bar-bg">
-                        <div class="resource-bar-fill" id="b2" style="width: 100%;"></div>
-                    </div>
-                    <div class="resource-desc" id="d2">Senin o güzel gülüşünle her sabah zihnime ve ruhuma yeniden yüklenen paha biçilemez energy.</div>
-                </div>
-
-                <!-- Metrik 3: Motivasyon & İlham -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <span class="resource-title" id="t3">Motivasyon & İlham</span>
-                        <span class="resource-val" id="v3">%100</span>
-                    </div>
-                    <div class="resource-bar-bg">
-                        <div class="resource-bar-fill" id="b3" style="width: 100%;"></div>
-                    </div>
-                    <div class="resource-desc" id="d3">Hayatıma kattığın o muazzam renk sayesinde, geleceğe ve hayata dair sınırsız başarma arzusu.</div>
-                </div>
-
-                <!-- Metrik 4: Hafıza / Zihin Doluluğu -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <span class="resource-title" id="t4">Hafıza & Zihin</span>
-                        <span class="resource-val" id="v4">Seninle Dolu</span>
-                    </div>
-                    <div class="resource-desc" id="d4">Seninle geçirdiğim her bir tatlı saniye, biriktirdiğimiz güzel anılar ve kurduğum o heyecan verici gelecek hayalleri ile tıka basa dolu.</div>
-                </div>
-
-            </div>
+        <!-- İlerledikçe Pembeleşen Barlar -->
+        <div class="bars-container">
+            <div class="bar"><div class="bar-fill" id="fill1"></div></div>
+            <div class="bar"><div class="bar-fill" id="fill2"></div></div>
+            <div class="bar"><div class="bar-fill" id="fill3"></div></div>
+            <div class="bar"><div class="bar-fill" id="fill4"></div></div>
+            <div class="bar"><div class="bar-fill" id="fill5"></div></div>
         </div>
-
-        <!-- Kutucuk 4: Aşk Mektubu -->
-        <div class="bento-item item-letter hide-system" id="letterBox">
-            <div>
-                <div class="letter-header" id="letterHeader">Sevgilime Not 🤍</div>
-                <div class="letter-content" id="letterContent">
-                    Esma... Seninle sadece bir yılı, bir günü değil; hayatın tüm anlarını paylaşmak başıma gelen en güzel şey. Artık sevgilim olarak yanımda olduğun bu ilk doğum gününde, sana olan sevgimin her saniye katlanarak arttığını bilmeni istiyorum. İyi ki doğdun sevgilim, iyi ki benim oldun. Birlikte upuzun, musmutlu yaşlarımız olsun!
-                </div>
-            </div>
-        </div>
-
     </div>
-    
-    <footer>Coded with 🤍 by Your Boy</footer>
 
     <script>
-        let isEsmaPresent = true; 
-        let isSystemBooted = false; // Sistem tetiklendi mi kontrolü
-        let heartbeatAudio = null; // Ses nesnesi global değişkeni
+        let currentStage = 0;
+        const totalStages = 5;
 
-        // Tıklama Mekanizması Entegrasyonu
-        document.getElementById('heartTrigger').addEventListener('click', function() {
-            // Eğer retro modda ise kalbe tıklanınca çalışmasın
-            if(!isEsmaPresent) return;
+        // Barlar doldukça sırasıyla görünecek mesajlar
+        const messages = [
+            "İlk siteye girdiğinde yine doğum günü mesajı olucak...",
+            "Bak, dokunuşunla nabzım hızlanmaya başladı bile! 👀💗",
+            "Barlar doluyor, içimdeki heyecan giderek katlanıyor... ✨",
+            "Seninle geçen her an, kalbimin en tatlı ritmi oldu. 🥰",
+            "Nabız en yüksek seviyede! Tamamen senin için atıyor! 🔥💓",
+            "DOĞUM GÜNÜN KUTLU OLSUN! 🎂🎉 İyi ki varsın, iyi ki doğdun sevgilim! 💖"
+        ];
 
-            const resourcesBox = document.getElementById('resourcesBox');
-            const letterBox = document.getElementById('letterBox');
-            const heartSvg = document.getElementById('heartSvg');
-            const statusText = document.getElementById('statusText');
+        // Kalp animasyon hızları (Barlar doldukça süre kısalacak, yani kalp daha hızlı atacak)
+        const heartSpeeds = ["1.2s", "0.9s", "0.7s", "0.5s", "0.3s", "0.15s"];
 
-            if (!isSystemBooted) {
-                // 1. Arayüzü görünür yap
-                resourcesBox.classList.add('show-system');
-                letterBox.classList.add('show-system');
-                
-                // 2. Kalbi hızlandır
-                heartSvg.classList.add('heart-fast');
-                statusText.innerText = "Nabız: HEYECANLI 💓";
-
-                // 3. Kalp atış sesini çal
-                if(!heartbeatAudio) {
-                    heartbeatAudio = new Audio('fast-heartbeat.mp3');
-                    heartbeatAudio.loop = true;
-                }
-                heartbeatAudio.play().catch(error => console.log("Ses çalma izni engellendi:", error));
-                
-                isSystemBooted = true;
-            } else {
-                // İkinci kez tıklanırsa kapatma mekanizması (İsteğe bağlı, istersen kaldırabilirsin)
-                resourcesBox.classList.remove('show-system');
-                letterBox.classList.remove('show-system');
-                heartSvg.classList.remove('heart-fast');
-                statusText.innerText = "Nabız: Normal 💓";
-                
-                if(heartbeatAudio) {
-                    heartbeatAudio.pause();
-                }
-                isSystemBooted = false;
-            }
-        });
-        
-        function toggleMode() {
-            const checkbox = document.getElementById('modeCheckbox');
-            isEsmaPresent = checkbox.checked;
+        // Mektup panelini animasyonla kapatıp ana ekranı açan fonksiyon
+        function openLetter() {
+            const envelope = document.getElementById('envelope');
+            const mainContent = document.getElementById('mainContent');
             
-            const body = document.body;
-            const brandText = document.getElementById('brandText');
-            const heroBadge = document.getElementById('heroBadge');
-            const heroTitle = document.getElementById('heroTitle');
-            const heroDesc = document.getElementById('heroDesc');
-            const resourcesTitle = document.getElementById('resourcesTitle');
-            const letterHeader = document.getElementById('letterHeader');
-            const letterContent = document.getElementById('letterContent');
-            const statusText = document.getElementById('statusText');
-            const heartSvg = document.getElementById('heartSvg');
+            envelope.classList.add('slide-out');
+            mainContent.classList.add('show');
+        }
 
-            const resourcesBox = document.getElementById('resourcesBox');
-            const letterBox = document.getElementById('letterBox');
+        // Kalbe her tıklandığında çalışan ana fonksiyon
+        function increasePulse() {
+            if (currentStage >= totalStages) return; // Zaten son aşamadaysa çalışmasın
 
-            // Metrik Elementleri
-            const t1 = document.getElementById('t1'); const v1 = document.getElementById('v1'); const b1 = document.getElementById('b1'); const d1 = document.getElementById('d1');
-            const t2 = document.getElementById('t2'); const v2 = document.getElementById('v2'); const b2 = document.getElementById('b2'); const d2 = document.getElementById('d2');
-            const t3 = document.getElementById('t3'); const v3 = document.getElementById('v3'); const b3 = document.getElementById('b3'); const d3 = document.getElementById('d3');
-            const t4 = document.getElementById('t4'); const v4 = document.getElementById('v4'); const d4 = document.getElementById('d4');
+            currentStage++;
+            
+            // İlgili barı doldur ve pembeleştir
+            const currentBarFill = document.getElementById(`fill${currentStage}`);
+            if (currentBarFill) {
+                currentBarFill.style.width = "100%";
+            }
 
-            if (isEsmaPresent) {
-                body.classList.remove('esma-yok');
-                brandText.innerText = "ESMA.OS v1.5 🌸";
-                heroBadge.innerText = "DOĞUM GÜNÜ ÖZEL";
-                heroTitle.innerText = "İyi Ki Doğdun Sevgilim!";
-                heroDesc.innerText = "Hayatıma girdiğin andan itibaren her günümü güzelleştiren, dünyamı rengarenk yapan en değerli varlığıma...";
-                resourcesTitle.innerText = "Kişisel Sistem Kaynakları";
-                letterHeader.innerText = "Sevgilime Not 🤍";
-                letterContent.innerText = "Esma... Seninle sadece bir yılı, bir günü değil; hayatın tüm anlarını paylaşmak başıma gelen en güzel şey. Artık sevgilim olarak yanımda olduğun bu ilk doğum gününde, sana olan sevgimin her saniye katlanarak arttığını bilmeni istiyorum. İyi ki doğdun sevgilim, iyi ki benim oldun. Birlikte upuzun, musmutlu yaşlarımız olsun!";
-                
-                // Duruma göre tetikleme modunu sıfırla veya koru
-                if(isSystemBooted) {
-                    statusText.innerText = "Nabız: HEYECANLI 💓";
-                    heartSvg.classList.add('heart-fast');
-                    if(heartbeatAudio) heartbeatAudio.play();
-                } else {
-                    statusText.innerText = "Nabız: Normal 💓";
-                    heartSvg.style.transform = "scale(1)";
-                    heartSvg.classList.remove('heart-fast');
-                }
+            // Mesaj kutusunu hafifçe soldurup değiştirerek pürüzsüz geçiş sağla
+            const messageBox = document.getElementById('messageBox');
+            messageBox.style.opacity = 0;
+            messageBox.style.transform = "scale(0.95)";
+            
+            setTimeout(() => {
+                messageBox.innerText = messages[currentStage];
+                messageBox.style.opacity = 1;
+                messageBox.style.transform = "scale(1)";
+            }, 300);
 
-                // Esma Var Metrikleri
-                t1.innerText = "Hayattan Aldığım Zevk"; v1.innerText = "%100"; b1.style.width = "100%"; d1.innerText = "Her anı seninle doya doya yaşamanın, varlığının verdiği o benzersiz huzurun göstergesi.";
-                t2.innerText = "Yaşama Sevinci"; v2.innerText = "Sonsuz ✨"; b2.style.width = "100%"; d2.innerText = "Senin o güzel gülüşünle her sabah zihnime ve ruhuma yeniden yüklenen paha biçilemez enerji.";
-                t3.innerText = "Motivasyon & İlham"; v3.innerText = "%100"; b3.style.width = "100%"; d3.innerText = "Hayatıma kattığın o muazzam renk sayesinde, geleceğe ve hayata dair sınırsız başarma arzusu.";
-                t4.innerText = "Hafıza & Zihin"; v4.innerText = "Seninle Dolu"; d4.innerText = "Seninle geçirdiğim her bir tatlı saniye, biriktirdiğimiz güzel anılar ve kurduğum o heyecan verici gelecek hayalleri ile tıka basa dolu.";
-                
-            } else {
-                body.classList.add('esma-yok');
-                brandText.innerText = "RETRO_MODE // PRE-ESMA";
-                heroBadge.innerText = "ESKİ SÜRÜM / ESMA ÖNCESİ";
-                heroTitle.innerText = "Monoton Bir Geçmiş...";
-                heroDesc.innerText = "Odamda tek başıma geçirdiğim, hayata dair en ufak bir kıvılcımın bile olmadığı, gri ve tamamen mekanik günler.";
-                resourcesTitle.innerText = "Mekanik Sistem Kaynakları (Esma Öncesi)";
-                letterHeader.innerText = "Eski Günlük Kaydı 🥀";
-                letterContent.innerText = "Geriye dönüp baktığımda, hayatımın ne kadar soluk ve amaçsız olduğunu çok daha iyi görebiliyorum sevgilim. Senin bana kattığın o eşsiz motivasyon ve hayatıma getirdiğin renkler olmadan önce, sadece kendi dünyasında kaybolmuş biriydim. Lütfen switch'i aç ve dünyayı tekrar olması gerektiği gibi renklendir...";
-                statusText.innerText = "NABIZ: DUYGUSUZ ⚠️";
-                
-                // Switch kapatılınca zorunlu olarak barları göster ve kalbi flatline yap
-                resourcesBox.classList.add('show-system');
-                letterBox.classList.add('show-system');
-                heartSvg.classList.remove('heart-fast');
-                heartSvg.style.transform = "scaleY(0.15) scaleX(1.3)";
-                
-                if(heartbeatAudio) {
-                    heartbeatAudio.pause();
-                }
+            // Kalbin atış hızını (animasyon süresini) güncelle
+            const heart = document.getElementById('heartElement');
+            heart.style.animationDuration = heartSpeeds[currentStage];
 
-                // Esma Yok Metrikleri
-                t1.innerText = "Hayattan Aldığım Zevk"; v1.innerText = "%0.01"; b1.style.width = "1%"; d1.innerText = "Hayattan gram zevk almayan, sadece günleri doldurmaya odaklanan tamamen monoton bir yaşam kalitesi.";
-                t2.innerText = "Yaşama Sevinci"; v2.innerText = "%0"; b2.style.width = "0%"; d2.innerText = "Bilgisayar başında sabahlanan, sadece zaman öldürmek için saatlerce atılan LoL maçlarından ibaret bir döngü.";
-                t3.innerText = "Motivasyon & İlham"; v3.innerText = "%5"; b3.style.width = "5%"; d3.innerText = "Odasında tek başına devlet yönetimi, derin diplomasi teorileri ve savaş planları yaparak kendini o yapay dünyaya adama çabası.";
-                t4.innerText = "Hafıza & Zihin"; v4.innerText = "Teorilerle Dolu"; d4.innerText = "Tarihi diplomasi stratejileri, haritalar, askeri planlar ve hayattan zevk alamamanın getirdiği o derin hayattan kaçma düşünceleri ile dolu bir zihin.";
+            // Eğer tüm barlar dolduysa kutlama başlat
+            if (currentStage === totalStages) {
+                startCelebration();
+            }
+        }
+
+        // Tüm barlar dolduğunda ekranda konfetiler uçuşmasını sağlayan fonksiyon
+        function startCelebration() {
+            document.querySelector('.click-hint').innerText = "Tüm kalbimle seni seviyorum!";
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    
+                    // Rastgele renkler ve konumlar
+                    const colors = ['#ff7eb3', '#ff758c', '#ff2a6d', '#ffb6c1', '#fff'];
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confetti.style.opacity = Math.random();
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Performans için eskiyen elementleri temizle
+                    setTimeout(() => { confetti.remove(); }, 3000);
+                }, i * 100);
             }
         }
     </script>
 </body>
 </html>
+
