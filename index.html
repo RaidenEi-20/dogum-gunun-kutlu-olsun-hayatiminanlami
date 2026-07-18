@@ -23,58 +23,6 @@
             color: #fff;
         }
 
-        /* --- Ekran 1: Mektup Paneli --- */
-        .envelope-container {
-            background: #fff;
-            color: #333;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 450px;
-            text-align: center;
-            position: absolute;
-            z-index: 10;
-            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
-            border: 2px solid #ffb6c1;
-        }
-
-        .envelope-container h2 {
-            color: #d81b60;
-            margin-bottom: 15px;
-        }
-
-        .envelope-container p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .envelope-container button {
-            background: #d81b60;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 5px 15px rgba(216, 27, 96, 0.4);
-        }
-
-        .envelope-container button:hover {
-            background: #e91e63;
-            transform: scale(1.05);
-        }
-
-        /* Mektubun ekrandan ayrılma animasyon sınıfı */
-        .envelope-container.slide-out {
-            transform: translateY(-100vh) rotate(-10deg);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* --- Ekran 2: Ana İnteraktif Ekran --- */
         .main-content {
             display: flex;
             flex-direction: column;
@@ -82,22 +30,14 @@
             justify-content: center;
             width: 90%;
             max-width: 500px;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
             text-align: center;
         }
 
-        .main-content.show {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Dinamik Mesaj Alanı */
+        /* Üstteki Doğum Günü Mesaj Alanı */
         .message-box {
-            font-size: 20px;
-            min-height: 80px;
-            margin-bottom: 30px;
+            font-size: 22px;
+            min-height: 90px;
+            margin-bottom: 20px;
             font-weight: 500;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -113,7 +53,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             user-select: none;
         }
 
@@ -130,13 +70,13 @@
             transform: scale(0.85);
         }
 
-        /* Tıkla Yardımcı Yazısı */
+        /* Kalbin Altındaki Yazı */
         .click-hint {
-            font-size: 14px;
-            color: #888;
+            font-size: 15px;
+            color: #aaa;
             margin-bottom: 40px;
             letter-spacing: 1px;
-            text-transform: uppercase;
+            font-weight: 500;
         }
 
         /* Barların Kapsayıcısı */
@@ -156,10 +96,9 @@
             overflow: hidden;
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: background 0.3s;
         }
 
-        /* Barın İçindeki Doluluk Efekti */
+        /* Barın İçindeki Doluluk Efekti (Pembeleşme) */
         .bar-fill {
             height: 100%;
             width: 0%;
@@ -168,7 +107,7 @@
             transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Kalp Atış Hızı Animasyonları */
+        /* Kalp Atış Hızı Animasyonu */
         @keyframes beat {
             0% { transform: scale(1); }
             25% { transform: scale(1.1); }
@@ -177,12 +116,11 @@
             100% { transform: scale(1); }
         }
 
-        /* Konfeti Efekti (Bitiş İçin) */
+        /* Kutlama Konfeti Efekti */
         .confetti {
             position: absolute;
             width: 10px;
             height: 10px;
-            background-color: #ff7eb3;
             border-radius: 50%;
             animation: fall 3s linear infinite;
             pointer-events: none;
@@ -197,31 +135,21 @@
 </head>
 <body>
 
-    <!-- Sahneler arası geçiş yapacak Mektup Paneli -->
-    <div class="envelope-container" id="envelope">
-        <h2>Sana Bir Mektup Var! ✉️</h2>
-        <p>
-            Bugün senin günün! Hayatıma kattığın tüm güzellikler için teşekkür ederim. 
-            Senin için küçük bir sürpriz hazırladım. Devam etmek ve kalbimin ritmini 
-            görmek için aşağıdaki butona tıkla.
-        </p>
-        <button onclick="openLetter()">Mektubu Aç</button>
-    </div>
-
-    <!-- Kalp ve Barların Olduğu İnteraktif Ekran -->
-    <div class="main-content" id="mainContent">
-        <!-- Değişen Mesajlar -->
+    <div class="main-content">
+        <!-- Doğum Günü Mesajı (En Üstte) -->
         <div class="message-box" id="messageBox">
             İlk siteye girdiğinde yine doğum günü mesajı olucak...
         </div>
 
-        <!-- Tıklanabilir Kalp -->
+        <!-- Kalp Emoji (Ortada) -->
         <div class="heart-wrapper" onclick="increasePulse()">
             <div class="heart" id="heartElement">❤️</div>
         </div>
-        <div class="click-hint">Nabzı arttırmak için kalbe tıkla</div>
+        
+        <!-- Kalbin Altındaki Yazı -->
+        <div class="click-hint" id="clickHint">nabzı arttırmak için tıkla</div>
 
-        <!-- İlerledikçe Pembeleşen Barlar -->
+        <!-- Soluk Başlayan Barlar (En Altta) -->
         <div class="bars-container">
             <div class="bar"><div class="bar-fill" id="fill1"></div></div>
             <div class="bar"><div class="bar-fill" id="fill2"></div></div>
@@ -235,7 +163,7 @@
         let currentStage = 0;
         const totalStages = 5;
 
-        // Barlar doldukça sırasıyla görünecek mesajlar
+        // Barlar doldukça sırasıyla değişecek mesajlar
         const messages = [
             "İlk siteye girdiğinde yine doğum günü mesajı olucak...",
             "Bak, dokunuşunla nabzım hızlanmaya başladı bile! 👀💗",
@@ -245,31 +173,21 @@
             "DOĞUM GÜNÜN KUTLU OLSUN! 🎂🎉 İyi ki varsın, iyi ki doğdun sevgilim! 💖"
         ];
 
-        // Kalp animasyon hızları (Barlar doldukça süre kısalacak, yani kalp daha hızlı atacak)
+        // Kalp atış hızları (Tıkladıkça animasyon süresi kısalır, kalp hızlanır)
         const heartSpeeds = ["1.2s", "0.9s", "0.7s", "0.5s", "0.3s", "0.15s"];
 
-        // Mektup panelini animasyonla kapatıp ana ekranı açan fonksiyon
-        function openLetter() {
-            const envelope = document.getElementById('envelope');
-            const mainContent = document.getElementById('mainContent');
-            
-            envelope.classList.add('slide-out');
-            mainContent.classList.add('show');
-        }
-
-        // Kalbe her tıklandığında çalışan ana fonksiyon
         function increasePulse() {
-            if (currentStage >= totalStages) return; // Zaten son aşamadaysa çalışmasın
+            if (currentStage >= totalStages) return;
 
             currentStage++;
             
-            // İlgili barı doldur ve pembeleştir
+            // Sıradaki barı bul ve doldur
             const currentBarFill = document.getElementById(`fill${currentStage}`);
             if (currentBarFill) {
                 currentBarFill.style.width = "100%";
             }
 
-            // Mesaj kutusunu hafifçe soldurup değiştirerek pürüzsüz geçiş sağla
+            // Üstteki mesajı pürüzsüzce değiştir
             const messageBox = document.getElementById('messageBox');
             messageBox.style.opacity = 0;
             messageBox.style.transform = "scale(0.95)";
@@ -280,26 +198,24 @@
                 messageBox.style.transform = "scale(1)";
             }, 300);
 
-            // Kalbin atış hızını (animasyon süresini) güncelle
+            // Kalbin atış hızını güncelle
             const heart = document.getElementById('heartElement');
             heart.style.animationDuration = heartSpeeds[currentStage];
 
-            // Eğer tüm barlar dolduysa kutlama başlat
+            // Tüm barlar dolduğunda konfetileri başlat
             if (currentStage === totalStages) {
                 startCelebration();
             }
         }
 
-        // Tüm barlar dolduğunda ekranda konfetiler uçuşmasını sağlayan fonksiyon
         function startCelebration() {
-            document.querySelector('.click-hint').innerText = "Tüm kalbimle seni seviyorum!";
+            document.getElementById('clickHint').innerText = "Tüm kalbimle seni seviyorum!";
             
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
                     const confetti = document.createElement('div');
                     confetti.classList.add('confetti');
                     
-                    // Rastgele renkler ve konumlar
                     const colors = ['#ff7eb3', '#ff758c', '#ff2a6d', '#ffb6c1', '#fff'];
                     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                     confetti.style.left = Math.random() * 100 + 'vw';
@@ -308,7 +224,6 @@
                     
                     document.body.appendChild(confetti);
                     
-                    // Performans için eskiyen elementleri temizle
                     setTimeout(() => { confetti.remove(); }, 3000);
                 }, i * 100);
             }
@@ -316,4 +231,3 @@
     </script>
 </body>
 </html>
-
